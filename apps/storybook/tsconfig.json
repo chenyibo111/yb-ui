@@ -1,0 +1,4 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "files": [".storybook/main.ts", ".storybook/preview.ts"]
+}
