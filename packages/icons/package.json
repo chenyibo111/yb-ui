@@ -3,5 +3,21 @@
   "version": "0.1.0",
   "type": "module",
   "files": ["dist"],
-  "exports": {}
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0"
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0 <20.0.0"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  }
 }
