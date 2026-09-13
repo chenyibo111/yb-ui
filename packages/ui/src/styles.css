@@ -141,3 +141,11 @@
 [data-slot="select-item"] { align-items: center; border-radius: var(--yb-radius-sm); cursor: pointer; display: flex; font-size: 0.875rem; gap: var(--yb-space-2); min-height: 2rem; outline: none; padding: 0 var(--yb-space-2); }
 [data-slot="select-item"][data-highlighted] { background: var(--yb-accent); color: var(--yb-accent-foreground); }
 .yb-select-item-indicator { margin-left: auto; }
+.yb-overlay { background: oklch(0.2 0.03 264 / .42); inset: 0; position: fixed; z-index: var(--yb-z-modal); }
+[data-slot="dialog-content"], [data-slot="drawer-content"] { background: var(--yb-card); border: 1px solid var(--yb-border); box-shadow: var(--yb-shadow-lg); color: var(--yb-card-foreground); position: fixed; z-index: calc(var(--yb-z-modal) + 1); }
+[data-slot="dialog-content"] { border-radius: var(--yb-radius-lg); left: 50%; max-width: min(32rem, calc(100vw - 2rem)); padding: var(--yb-space-6); top: 50%; transform: translate(-50%,-50%); width: 100%; }
+.yb-drawer { padding: var(--yb-space-6); } .yb-drawer-right { height: 100%; right: 0; top: 0; width: min(28rem,90vw); } .yb-drawer-left { height: 100%; left: 0; top: 0; width: min(28rem,90vw); } .yb-drawer-top { left: 0; top: 0; width: 100%; } .yb-drawer-bottom { bottom: 0; left: 0; width: 100%; }
+.yb-dialog-close { background: transparent; border: 0; color: var(--yb-muted-foreground); cursor: pointer; position: absolute; right: var(--yb-space-3); top: var(--yb-space-3); }
+[data-slot="popover-content"], [data-slot="dropdown-menu-content"], [data-slot="tooltip-content"] { background: var(--yb-popover); border: 1px solid var(--yb-border); border-radius: var(--yb-radius-md); box-shadow: var(--yb-shadow-md); color: var(--yb-popover-foreground); padding: var(--yb-space-2); z-index: var(--yb-z-dropdown); }
+[data-slot="tooltip-content"] { background: var(--yb-foreground); color: var(--yb-background); font-size: .8125rem; padding: var(--yb-space-2) var(--yb-space-3); }
+.yb-menu-item { border-radius: var(--yb-radius-sm); cursor: pointer; display: flex; min-height: 2rem; outline: none; padding: 0 var(--yb-space-2); } .yb-menu-item[data-highlighted] { background: var(--yb-accent); }
