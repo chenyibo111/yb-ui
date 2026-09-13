@@ -4,5 +4,16 @@
   "type": "module",
   "sideEffects": ["./dist/styles.css"],
   "files": ["dist"],
-  "exports": {}
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  }
 }
