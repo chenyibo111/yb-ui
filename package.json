@@ -16,10 +16,13 @@
     "storybook": "pnpm --filter @yb/storybook storybook",
     "build-storybook": "pnpm --filter @yb/storybook build-storybook",
     "test:visual": "pnpm exec playwright test",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
     "verify": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",
+    "@changesets/cli": "^2.29.7",
     "@playwright/test": "^1.0.0",
     "@storybook/addon-a11y": "^9.0.0",
     "@storybook/react-vite": "^9.0.0",
