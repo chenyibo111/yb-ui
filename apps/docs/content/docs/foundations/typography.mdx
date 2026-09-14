@@ -1,0 +1,29 @@
+---
+title: 排版
+description: 让中文界面保持层次清晰、阅读稳定的文字规则。
+---
+
+YB UI 的默认字体栈通过 `--yb-font-sans` 适配中文系统字体；代码与令牌名称使用 `--yb-font-mono`。页面优先通过 `Heading` 与 `Text` 建立文本层级。
+
+## 层级
+
+- `Heading` 用于文档标题、页面标题和区域标题，按语义选择 `as`。
+- `Text` 用于正文、辅助说明和状态文本，通过 `tone` 与 `weight` 表达强调度。
+- 一页只保留一个主标题；不要为了视觉尺寸跳过标题级别。
+
+```tsx
+import { Heading, Text } from "@yb/ui"
+
+export function ProjectHeader() {
+  return (
+    <header>
+      <Heading as="h1" size="xl">项目概览</Heading>
+      <Text tone="muted">查看本周的关键进展与待办事项。</Text>
+    </header>
+  )
+}
+```
+
+## 可读性
+
+正文使用默认前景色，辅助信息使用 `muted` 色调。不要仅依赖文字颜色传递错误、成功或选中状态；同时提供图标、文案或可访问的状态说明。

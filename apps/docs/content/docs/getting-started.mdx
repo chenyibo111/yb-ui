@@ -1,0 +1,40 @@
+---
+title: 快速开始
+description: 在 React 项目中安装、引入并开始使用 YB UI。
+---
+
+YB UI 是面向内部 React 项目的通用组件库。首期提供钴蓝脉冲（Cobalt Pulse）浅色设计系统，以及深色主题所需的令牌结构。
+
+## 安装
+
+发布后，在应用项目中安装 UI、图标与令牌包：
+
+```bash
+pnpm add @yb/ui @yb/icons @yb/tokens
+```
+
+## 引入样式与 Provider
+
+在应用入口导入组件样式，并用 `YBProvider` 包住应用。Provider 默认使用中文文案，也可显式指定语言。
+
+```tsx
+import "@yb/tokens/styles.css"
+import "@yb/ui/styles.css"
+import { Button, YBProvider } from "@yb/ui"
+
+export function App() {
+  return (
+    <YBProvider locale="zh-CN">
+      <Button>保存</Button>
+    </YBProvider>
+  )
+}
+```
+
+## 使用原则
+
+- 从 `@yb/ui`、`@yb/icons` 的公开入口导入，不依赖组件库内部文件。
+- 通过组件的 `variant`、`size`、状态属性与语义化令牌表达界面意图。
+- 表单与数据请求保持框架中立；可与现有表单方案组合。
+
+接下来可先了解[色彩](/docs/foundations/color)与[排版](/docs/foundations/typography)，再浏览第一个[Button](/docs/components/button)组件。
