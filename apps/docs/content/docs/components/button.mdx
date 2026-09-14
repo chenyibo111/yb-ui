@@ -1,0 +1,89 @@
+---
+title: Button 按钮
+description: 用于触发主要、次要或危险操作的基础交互组件。
+---
+
+import { ButtonBasicExample } from "../../../components/examples/button/basic"
+import { ButtonVariantsExample } from "../../../components/examples/button/variants"
+import { ButtonIconExample } from "../../../components/examples/button/icon"
+import { ButtonLoadingExample } from "../../../components/examples/button/loading"
+
+export const basicCode = `import { Button } from "@yb/ui"
+
+<Button>创建项目</Button>`
+
+export const variantsCode = `import { Button, Stack } from "@yb/ui"
+
+<Stack direction="horizontal" gap="2">
+  <Button>主要操作</Button>
+  <Button variant="secondary">次要操作</Button>
+  <Button variant="outline">描边操作</Button>
+  <Button variant="ghost">幽灵操作</Button>
+  <Button variant="destructive">删除</Button>
+</Stack>`
+
+export const iconCode = `import { AddIcon } from "@yb/icons"
+import { IconButton } from "@yb/ui"
+
+<IconButton aria-label="新增项目">
+  <AddIcon aria-hidden="true" />
+</IconButton>`
+
+export const loadingCode = `import { Button } from "@yb/ui"
+
+<Button loading>保存</Button>`
+
+`Button` 用于发起用户操作。页面中通常只保留一个默认的主要操作；次级、低强调度或危险操作应选择对应变体。
+
+## 基础用法
+
+<ComponentPreview title="基础按钮">
+  <ButtonBasicExample />
+</ComponentPreview>
+
+<SourceCode code={basicCode} />
+
+## 变体
+
+<ComponentPreview title="按钮变体">
+  <ButtonVariantsExample />
+</ComponentPreview>
+
+<SourceCode code={variantsCode} />
+
+## 图标按钮
+
+仅含图标的按钮必须提供清晰的 `aria-label`，使其名称能被辅助技术读取。
+
+<ComponentPreview title="图标按钮">
+  <ButtonIconExample />
+</ComponentPreview>
+
+<SourceCode code={iconCode} />
+
+## 加载状态
+
+`loading` 会禁用原生按钮、设置忙碌状态，并提供“正在加载”的辅助技术提示。不要在加载时保留可重复提交的操作。
+
+<ComponentPreview title="加载按钮">
+  <ButtonLoadingExample />
+</ComponentPreview>
+
+<SourceCode code={loadingCode} />
+
+## API
+
+<ApiTable rows={[
+  { name: "variant", type: '"primary" | "secondary" | "outline" | "ghost" | "destructive"', defaultValue: '"primary"', description: "表达操作的视觉强调度与风险。" },
+  { name: "size", type: '"sm" | "md" | "lg" | "icon"', defaultValue: '"md"', description: "控制控件尺寸；图标按钮由 IconButton 提供。" },
+  { name: "loading", type: "boolean", defaultValue: "false", description: "显示加载提示并禁用点击。" },
+  { name: "asChild", type: "boolean", defaultValue: "false", description: "将样式与交互能力合并到唯一子元素。" }
+]} />
+
+## 可访问性
+
+- 原生 `button` 自动支持键盘 Enter 与 Space 触发。
+- 图标按钮必须使用 `IconButton` 并传入可读的 `aria-label`。
+- 使用 `loading` 时保持按钮文案稳定，避免用户失去操作上下文。
+
+继续了解 [Input](/docs/components/input) 的表单输入，或 [Dialog](/docs/components/dialog) 的确认流程。
