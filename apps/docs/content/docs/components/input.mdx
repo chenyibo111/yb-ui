@@ -1,0 +1,71 @@
+---
+title: Input 输入框
+description: 用于录入单行文本、数字、邮箱或密码等原生输入内容。
+---
+
+import { InputBasicExample } from "../../../components/examples/input/basic"
+import { InputFieldStatesExample } from "../../../components/examples/input/field-states"
+import { InputDisabledExample } from "../../../components/examples/input/disabled"
+
+export const basicCode = `import { Input } from "@yb/ui"
+
+<Input placeholder="输入项目名称" />`
+
+export const fieldCode = `import { Field, Input } from "@yb/ui"
+
+<Field
+  label="工作邮箱"
+  required
+  error="请输入有效的邮箱地址"
+>
+  <Input defaultValue="yb-ui.example" type="email" />
+</Field>`
+
+export const disabledCode = `import { Field, Input } from "@yb/ui"
+
+<Field label="已归档项目">
+  <Input disabled value="2026 年度设计系统" readOnly />
+</Field>`
+
+`Input` 保留原生 `<input>` 的属性与事件，适合单行信息录入。需要标签、说明或错误消息时，请与 `Field` 组合。
+
+## 基础用法
+
+<ComponentPreview title="基础输入框">
+  <InputBasicExample />
+</ComponentPreview>
+
+<SourceCode code={basicCode} />
+
+## 标签、说明与错误
+
+`Field` 会为唯一子输入框生成关联的 `label`、`aria-describedby` 与错误状态。表单校验逻辑仍由应用或表单库管理。
+
+<ComponentPreview title="字段状态">
+  <InputFieldStatesExample />
+</ComponentPreview>
+
+<SourceCode code={fieldCode} />
+
+## 禁用状态
+
+禁用字段不可编辑也不会参与提交。展示不可编辑但仍需提交的值时，按业务需要使用 `readOnly`。
+
+<ComponentPreview title="禁用输入框">
+  <InputDisabledExample />
+</ComponentPreview>
+
+<SourceCode code={disabledCode} />
+
+## API
+
+<ApiTable rows={[
+  { name: "type", type: "InputHTMLAttributes['type']", defaultValue: '"text"', description: "透传原生输入类型，例如 email、password 或 number。" },
+  { name: "disabled", type: "boolean", defaultValue: "false", description: "禁用输入和原生交互。" },
+  { name: "aria-invalid", type: "boolean | 'true' | 'false'", defaultValue: "undefined", description: "标记校验失败；Field 在传入 error 时自动设置。" },
+  { name: "placeholder", type: "string", defaultValue: "undefined", description: "提供格式提示，不替代可见标签。" }
+]} />
+
+## 表单集成
+
+`Input` 使用标准 ref、`value`、`defaultValue`、`onChange` 和原生属性，因此可直接与 React Hook Form、Formik 或项目内校验方案组合。业务代码负责校验时机与错误文案，将最终错误传给 `Field` 即可。
