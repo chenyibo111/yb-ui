@@ -1,0 +1,2 @@
+import { render,screen } from "@testing-library/react"; import userEvent from "@testing-library/user-event"; import { describe,expect,it,vi } from "vitest"; import { Calendar } from "./Calendar"
+describe("Calendar",()=>{it("selects a single date from the keyboard",async()=>{const u=userEvent.setup(),onSelect=vi.fn();render(<Calendar defaultMonth={new Date(2026,8,1)} mode="single" onSelect={onSelect}/>);await u.click(screen.getByRole("button",{name:/2026年9月15日/}));expect(onSelect).toHaveBeenCalled()})})
