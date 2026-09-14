@@ -16,6 +16,7 @@
 - `apps/docs` 中的组件示例只能导入 `@yb/ui`、`@yb/icons`、`@yb/tokens/styles.css`、`@yb/ui/styles.css`，不能导入 `packages/ui/src`。
 - 首期所有可见文案为中文；URL 使用稳定英文片段；不实现暗色主题开关、登录、部署、埋点或业务数据。
 - Fumadocs 当前版本要求 Node.js 22；将根 `engines.node` 更新为 `>=22.0.0`，CI 继续使用 Node 24。
+- `@yb/ui` 的聚合入口包含 React Client Components；任何直接从该入口导入组件的 docs 展示模块都以 `"use client"` 作为文件第一行，路由页保持 Server Component 并只渲染这些展示模块。
 - 每个行为性 React 组件先写 Vitest/Testing Library 失败测试，再实施最小实现；Next/Fumadocs 配置文件不适用 TDD。
 - 构建依赖顺序保持 `lint → build → typecheck → test`；文档站的 `build` 必须从干净工作区使用已构建的 `@yb` 包成功。
 
@@ -488,4 +489,3 @@ Expected: all commands exit 0. Inspect `git diff --check` and `git status --shor
 git add .github/workflows/verify.yml README.md package.json pnpm-lock.yaml apps/docs
 git commit -m "chore: verify YB UI documentation site"
 ```
-

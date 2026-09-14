@@ -5,11 +5,82 @@
 @import "@yb/ui/styles.css";
 
 :root {
-  color: var(--yb-fg);
-  background: var(--yb-bg);
+  color: var(--yb-foreground);
+  background: var(--yb-background);
+  font-family: var(--yb-font-sans);
 }
 
 body {
-  background: var(--yb-bg);
-  color: var(--yb-fg);
+  background: var(--yb-background);
+  color: var(--yb-foreground);
+}
+
+.yb-docs-home {
+  display: grid;
+  gap: clamp(3.5rem, 9vw, 7.5rem);
+  margin: 0 auto;
+  max-width: 76rem;
+  padding: clamp(3rem, 8vw, 7rem) var(--yb-space-6);
+}
+
+.yb-docs-home-hero {
+  display: grid;
+  gap: var(--yb-space-6);
+  max-width: 48rem;
+}
+
+.yb-docs-home-eyebrow {
+  color: var(--yb-primary);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.yb-docs-home-title {
+  font-size: clamp(3.25rem, 8vw, 6.5rem);
+  letter-spacing: -0.065em;
+  line-height: 0.95;
+}
+
+.yb-docs-home-description {
+  color: var(--yb-muted-foreground);
+  font-size: clamp(1.125rem, 2vw, 1.35rem);
+  line-height: 1.75;
+  max-width: 42rem;
+}
+
+.yb-docs-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--yb-space-3);
+}
+
+.yb-docs-home-grid {
+  display: grid;
+  gap: var(--yb-space-4);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.yb-docs-home-card {
+  display: grid;
+  gap: var(--yb-space-3);
+  min-height: 13rem;
+}
+
+.yb-docs-home-card-index {
+  color: var(--yb-primary);
+  font-family: var(--yb-font-mono);
+  font-size: 0.8125rem;
+}
+
+.yb-docs-home-card-description {
+  color: var(--yb-muted-foreground);
+  line-height: 1.65;
+}
+
+@media (max-width: 48rem) {
+  .yb-docs-home-grid {
+    grid-template-columns: 1fr;
+  }
 }
