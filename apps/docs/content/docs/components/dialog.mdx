@@ -1,0 +1,94 @@
+---
+title: Dialog 对话框
+description: 用于需要用户确认、补充信息或暂时聚焦任务的模态流程。
+---
+
+import { DialogBasicExample } from "../../../components/examples/dialog/basic"
+import { DeleteConfirmationExample } from "../../../components/examples/dialog/delete-confirmation"
+import { DialogFormExample } from "../../../components/examples/dialog/form"
+
+export const basicCode = `import {
+  Button, Dialog, DialogClose, DialogContent,
+  DialogDescription, DialogTitle, DialogTrigger,
+} from "@yb/ui"
+
+<Dialog>
+  <DialogTrigger asChild><Button>查看发布说明</Button></DialogTrigger>
+  <DialogContent>
+    <DialogTitle>发布说明</DialogTitle>
+    <DialogDescription>本次更新包含新的文档体验。</DialogDescription>
+    <DialogClose asChild><Button>我知道了</Button></DialogClose>
+  </DialogContent>
+</Dialog>`
+
+export const deleteCode = `<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="destructive">删除项目</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogTitle>确认删除项目？</DialogTitle>
+    <DialogDescription>此操作无法撤销。</DialogDescription>
+    <DialogClose asChild><Button variant="secondary">取消</Button></DialogClose>
+    <DialogClose asChild><Button variant="destructive">确认删除</Button></DialogClose>
+  </DialogContent>
+</Dialog>`
+
+export const formCode = `<Dialog>
+  <DialogTrigger asChild><Button>新建项目</Button></DialogTrigger>
+  <DialogContent>
+    <DialogTitle>新建项目</DialogTitle>
+    <DialogDescription>填写名称后即可创建项目。</DialogDescription>
+    <Field label="项目名称" required>
+      <Input placeholder="例如：设计系统升级" />
+    </Field>
+  </DialogContent>
+</Dialog>`
+
+`Dialog` 由一组可组合的 Radix 原语构成。它适合需要用户停留并完成明确任务的场景；简单提示请使用 Toast 或页面内反馈。
+
+## 基础用法
+
+每个对话框都应包含可读的标题与说明，帮助屏幕阅读器和键盘用户理解当前上下文。
+
+<ComponentPreview title="基础对话框">
+  <DialogBasicExample />
+</ComponentPreview>
+
+<SourceCode code={basicCode} />
+
+## 危险确认
+
+危险操作使用 `destructive` 变体，并明确说明不可逆后果。取消与确认都应提供明确的关闭路径。
+
+<ComponentPreview title="删除确认">
+  <DeleteConfirmationExample />
+</ComponentPreview>
+
+<SourceCode code={deleteCode} />
+
+## 表单流程
+
+表单内容与普通表单组件组合即可；对话框负责焦点管理和关闭行为，业务逻辑负责提交与校验。
+
+<ComponentPreview title="对话框表单">
+  <DialogFormExample />
+</ComponentPreview>
+
+<SourceCode code={formCode} />
+
+## API
+
+<ApiTable rows={[
+  { name: "Dialog", type: "Root", defaultValue: "—", description: "管理打开状态；可通过 open 与 onOpenChange 受控。" },
+  { name: "DialogTrigger", type: "Trigger", defaultValue: "—", description: "触发对话框；通常配合 asChild 使用 Button。" },
+  { name: "DialogContent", type: "Content", defaultValue: "—", description: "渲染在 Portal 中的模态内容与关闭按钮。" },
+  { name: "DialogTitle", type: "Title", defaultValue: "—", description: "为对话框提供必需的可访问名称。" },
+  { name: "DialogDescription", type: "Description", defaultValue: "—", description: "补充说明对话框目的或操作后果。" },
+  { name: "DialogClose", type: "Close", defaultValue: "—", description: "关闭对话框；可包裹取消或确认动作。" }
+]} />
+
+## 可访问性
+
+- 打开后焦点会进入对话框，关闭后返回触发元素。
+- 始终提供 `DialogTitle`；有说明时提供 `DialogDescription`。
+- Esc 和右上角关闭按钮可关闭对话框，同时应保留显式的取消操作。
