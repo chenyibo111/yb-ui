@@ -22,6 +22,8 @@ export { Separator, type SeparatorProps } from "./components/separator/Separator
 export { Stack, type Space, type StackAlign, type StackDirection, type StackJustify, type StackProps } from "./components/stack/Stack"
 export { Text, type TextProps, type TextSize, type TextTone, type TextWeight } from "./components/text/Text"
 export { Textarea, type TextareaProps } from "./components/textarea/Textarea"
+export { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "./components/table/Table"
+export { Pagination, type PaginationProps } from "./components/pagination/Pagination"
 export { Switch, type SwitchProps } from "./components/switch/Switch"
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "./components/tabs/Tabs"
 export { Skeleton } from "./components/skeleton/Skeleton"
