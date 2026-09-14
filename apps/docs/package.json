@@ -1,0 +1,38 @@
+{
+  "name": "@yb/docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@yb/icons": "workspace:*",
+    "@yb/tokens": "workspace:*",
+    "@yb/ui": "workspace:*",
+    "@types/mdx": "^2.0.13",
+    "fumadocs-core": "^16.15.10",
+    "fumadocs-mdx": "^15.4.0",
+    "fumadocs-ui": "^16.15.10",
+    "next": "^16.3.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.0.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "jsdom": "^27.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.0.0",
+    "vitest": "^4.0.0"
+  }
+}

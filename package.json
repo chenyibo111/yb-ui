@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@11.19.0",
   "engines": {
-    "node": ">=18.2.0",
+    "node": ">=22.0.0",
     "pnpm": ">=10.0.0"
   },
   "scripts": {
@@ -15,6 +15,8 @@
     "build": "pnpm -r --if-present build",
     "storybook": "pnpm --filter @yb/storybook storybook",
     "build-storybook": "pnpm --filter @yb/storybook build-storybook",
+    "docs": "pnpm --filter @yb/docs dev",
+    "build-docs": "pnpm --filter @yb/docs build",
     "test:visual": "pnpm exec playwright test",
     "changeset": "changeset",
     "version-packages": "changeset version",

@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+@import "@yb/tokens/styles.css";
+@import "@yb/ui/styles.css";
+
+:root {
+  color: var(--yb-fg);
+  background: var(--yb-bg);
+}
+
+body {
+  background: var(--yb-bg);
+  color: var(--yb-fg);
+}

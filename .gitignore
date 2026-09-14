@@ -1,6 +1,8 @@
 node_modules/
 dist/
 storybook-static/
+apps/docs/.next/
+apps/docs/.source/
 playwright-report/
 test-results/
 coverage/
