@@ -1,0 +1,1 @@
+import { Card,CardContent,CardTitle } from "./Card"; export default {title:"展示 / Card",component:Card}; export const Default={render:()=> <Card><CardTitle>项目统计</CardTitle><CardContent>本月新增 12 个项目</CardContent></Card>}

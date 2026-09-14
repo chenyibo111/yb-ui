@@ -1,0 +1,1 @@
+import { Tabs,TabsContent,TabsList,TabsTrigger } from "./Tabs"; export default {title:"导航 / Tabs",component:Tabs}; export const Default={render:()=> <Tabs defaultValue="a"><TabsList><TabsTrigger value="a">概览</TabsTrigger><TabsTrigger value="b">设置</TabsTrigger></TabsList><TabsContent value="a">概览内容</TabsContent><TabsContent value="b">设置内容</TabsContent></Tabs>}

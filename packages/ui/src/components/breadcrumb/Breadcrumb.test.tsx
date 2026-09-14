@@ -1,0 +1,2 @@
+import { render,screen } from "@testing-library/react"; import { describe,expect,it } from "vitest"; import { Breadcrumb,BreadcrumbItem,BreadcrumbList,BreadcrumbPage } from "./Breadcrumb"
+describe("Breadcrumb",()=>{it("marks the current page",()=>{render(<Breadcrumb><BreadcrumbList><BreadcrumbItem><BreadcrumbPage>项目设置</BreadcrumbPage></BreadcrumbItem></BreadcrumbList></Breadcrumb>);expect(screen.getByText("项目设置")).toHaveAttribute("aria-current","page")})})

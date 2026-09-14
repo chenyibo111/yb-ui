@@ -1,0 +1,2 @@
+import { fireEvent,render,screen } from "@testing-library/react"; import { describe,expect,it } from "vitest"; import { Avatar,AvatarFallback,AvatarImage } from "./Avatar"
+describe("Avatar",()=>{it("shows fallback when image fails",()=>{render(<Avatar><AvatarImage alt="张三" src="/missing.png"/><AvatarFallback>张</AvatarFallback></Avatar>);fireEvent.error(screen.getByAltText("张三"));expect(screen.getByText("张")).toBeVisible()})})

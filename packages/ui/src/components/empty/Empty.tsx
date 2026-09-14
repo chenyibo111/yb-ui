@@ -1,0 +1,1 @@
+export function Empty({title,description,icon,action}:{title:string;description?:React.ReactNode;icon?:React.ReactNode;action?:React.ReactNode}){return <div className="yb-empty" data-slot="empty">{icon}<h3>{title}</h3>{description?<p>{description}</p>:null}{action}</div>}

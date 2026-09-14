@@ -1,0 +1,1 @@
+import { cn } from "../../lib/cn"; export function Badge({className,variant="default",...p}:React.HTMLAttributes<HTMLSpanElement>&{variant?:"default"|"success"|"warning"|"destructive"}){return <span className={cn("yb-badge",className)} data-variant={variant} {...p}/>}
