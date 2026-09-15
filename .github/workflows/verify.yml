@@ -18,4 +18,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm verify
       - run: pnpm --filter @yb/playground test
+      - run: pnpm --filter @yb/docs test
+      - run: pnpm build-docs
       - run: pnpm build-storybook

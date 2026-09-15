@@ -11,6 +11,7 @@
 | `@yb/tokens` | 语义化设计令牌与 CSS Variables |
 | `@yb/icons` | 基于 Lucide 的稳定图标出口 |
 | `@yb/ui` | React 基础组件、Provider 与样式 |
+| `@yb/docs` | 基于 Next.js 与 MDX 的组件官网 |
 | `@yb/storybook` | 组件交互与可访问性文档 |
 
 ## 已覆盖的组件
@@ -23,7 +24,7 @@
 
 ## 本地开发
 
-环境要求：Node.js 18.2+、pnpm 10+。
+环境要求：Node.js 22+、pnpm 10+。
 
 ```bash
 pnpm install
@@ -33,11 +34,32 @@ pnpm build
 pnpm storybook
 ```
 
+启动中文组件文档站：
+
+```bash
+pnpm docs
+```
+
 构建静态 Storybook：
 
 ```bash
 pnpm build-storybook
 ```
+
+构建文档站生产版本：
+
+```bash
+pnpm build-docs
+```
+
+## Docs 与 Storybook
+
+两者服务于不同场景：
+
+- **Docs**：面向组件使用者，提供中文使用说明、可运行示例、源码与 API，入口为 `pnpm docs`。
+- **Storybook**：面向组件开发与验收，提供状态组合、Controls 和 a11y 检查，入口为 `pnpm storybook`。
+
+本期只交付本地文档站，部署配置不在当前范围内。
 
 ## 在 React 项目中使用
 
