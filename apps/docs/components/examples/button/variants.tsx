@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Stack } from "@yb/ui"
+import { Button, Stack } from "@chenyibo111/ui"
 
 export function ButtonVariantsExample() {
   return (

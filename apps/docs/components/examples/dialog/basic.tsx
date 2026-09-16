@@ -10,7 +10,7 @@ import {
   DialogTrigger,
   Stack,
   Text,
-} from "@yb/ui"
+} from "@chenyibo111/ui"
 
 export function DialogBasicExample() {
   return (

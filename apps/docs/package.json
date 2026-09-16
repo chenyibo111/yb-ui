@@ -1,5 +1,5 @@
 {
-  "name": "@yb/docs",
+  "name": "@chenyibo111/docs",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -13,9 +13,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@yb/icons": "workspace:*",
-    "@yb/tokens": "workspace:*",
-    "@yb/ui": "workspace:*",
+    "@chenyibo111/icons": "workspace:*",
+    "@chenyibo111/tokens": "workspace:*",
+    "@chenyibo111/ui": "workspace:*",
     "@types/mdx": "^2.0.13",
     "fumadocs-core": "^16.15.10",
     "fumadocs-mdx": "^15.4.0",

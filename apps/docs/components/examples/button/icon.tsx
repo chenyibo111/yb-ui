@@ -1,7 +1,7 @@
 "use client"
 
-import { AddIcon } from "@yb/icons"
-import { IconButton } from "@yb/ui"
+import { AddIcon } from "@chenyibo111/icons"
+import { IconButton } from "@chenyibo111/ui"
 
 export function ButtonIconExample() {
   return (

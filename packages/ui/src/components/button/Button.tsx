@@ -2,7 +2,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import type { ButtonHTMLAttributes, MouseEvent } from "react"
 
-import { SpinnerIcon } from "@yb/icons"
+import { SpinnerIcon } from "@chenyibo111/icons"
 
 import { cn } from "../../lib/cn"
 

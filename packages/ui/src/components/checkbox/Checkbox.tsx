@@ -1,5 +1,5 @@
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { CheckIcon } from "@yb/icons"
+import { CheckIcon } from "@chenyibo111/icons"
 import { cn } from "../../lib/cn"
 
 export type CheckboxProps = React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>

@@ -1,7 +1,7 @@
 "use client"
 
-import { Button, Card, CardContent, CardHeader, CardTitle, Heading, Text } from "@yb/ui"
-import { ChevronRightIcon } from "@yb/icons"
+import { Button, Card, CardContent, CardHeader, CardTitle, Heading, Text } from "@chenyibo111/ui"
+import { ChevronRightIcon } from "@chenyibo111/icons"
 
 const capabilities = [
   {

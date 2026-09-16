@@ -80,18 +80,18 @@ importers:
 
   apps/docs:
     dependencies:
+      '@chenyibo111/icons':
+        specifier: workspace:*
+        version: link:../../packages/icons
+      '@chenyibo111/tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
+      '@chenyibo111/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.14
-      '@yb/icons':
-        specifier: workspace:*
-        version: link:../../packages/icons
-      '@yb/tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
-      '@yb/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       fumadocs-core:
         specifier: ^16.15.10
         version: 16.15.10(@mdx-js/mdx@3.1.1(supports-color@7.2.0))(@types/estree-jsx@1.0.5)(@types/hast@3.0.5)(@types/mdast@4.0.4)(@types/react@19.3.0)(lucide-react@1.45.0(react@19.3.0))(next@16.3.5(@babel/core@7.29.7(supports-color@7.2.0))(@playwright/test@1.63.0)(@types/node@24.13.4)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(supports-color@7.2.0)(zod@4.6.4)
@@ -153,13 +153,13 @@ importers:
 
   apps/playground:
     dependencies:
-      '@yb/icons':
+      '@chenyibo111/icons':
         specifier: workspace:*
         version: link:../../packages/icons
-      '@yb/tokens':
+      '@chenyibo111/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@yb/ui':
+      '@chenyibo111/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       react:
@@ -171,13 +171,13 @@ importers:
 
   apps/storybook:
     dependencies:
-      '@yb/icons':
+      '@chenyibo111/icons':
         specifier: workspace:*
         version: link:../../packages/icons
-      '@yb/tokens':
+      '@chenyibo111/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
-      '@yb/ui':
+      '@chenyibo111/ui':
         specifier: workspace:*
         version: link:../../packages/ui
       react:
@@ -200,6 +200,12 @@ importers:
 
   packages/ui:
     dependencies:
+      '@chenyibo111/icons':
+        specifier: workspace:*
+        version: link:../icons
+      '@chenyibo111/tokens':
+        specifier: workspace:*
+        version: link:../tokens
       '@radix-ui/react-checkbox':
         specifier: ^1.3.2
         version: 1.3.11(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
@@ -233,12 +239,6 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.2.8
         version: 1.2.16(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
-      '@yb/icons':
-        specifier: workspace:*
-        version: link:../icons
-      '@yb/tokens':
-        specifier: workspace:*
-        version: link:../tokens
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1

@@ -11,7 +11,7 @@ import {
   Field,
   Input,
   Stack,
-} from "@yb/ui"
+} from "@chenyibo111/ui"
 
 export function DialogFormExample() {
   return (

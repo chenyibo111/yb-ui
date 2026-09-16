@@ -1,8 +1,23 @@
 {
-  "name": "@yb/icons",
+  "name": "@chenyibo111/icons",
   "version": "0.1.0",
+  "description": "Lucide-based React icon exports for YB UI.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenyibo111/yb-ui.git",
+    "directory": "packages/icons"
+  },
+  "homepage": "https://github.com/chenyibo111/yb-ui#readme",
+  "bugs": {
+    "url": "https://github.com/chenyibo111/yb-ui/issues"
+  },
+  "keywords": ["icons", "lucide", "react", "yb-ui"],
   "type": "module",
   "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

@@ -1,6 +1,6 @@
 "use client"
 
-import { Field, Input, Stack } from "@yb/ui"
+import { Field, Input, Stack } from "@chenyibo111/ui"
 
 export function InputFieldStatesExample() {
   return (

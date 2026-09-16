@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
   Stack,
-} from "@yb/ui"
+} from "@chenyibo111/ui"
 
 export function DeleteConfirmationExample() {
   return (

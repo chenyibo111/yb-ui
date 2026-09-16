@@ -1,6 +1,6 @@
 "use client"
 
-import { Field, Input } from "@yb/ui"
+import { Field, Input } from "@chenyibo111/ui"
 
 export function InputDisabledExample() {
   return (

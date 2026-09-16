@@ -1,9 +1,24 @@
 {
-  "name": "@yb/tokens",
+  "name": "@chenyibo111/tokens",
   "version": "0.1.0",
+  "description": "Cobalt Pulse design tokens and CSS variables for YB UI.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenyibo111/yb-ui.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://github.com/chenyibo111/yb-ui#readme",
+  "bugs": {
+    "url": "https://github.com/chenyibo111/yb-ui/issues"
+  },
+  "keywords": ["design-tokens", "css-variables", "react", "yb-ui"],
   "type": "module",
   "sideEffects": ["./dist/styles.css"],
   "files": ["dist"],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

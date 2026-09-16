@@ -1,9 +1,9 @@
 import type { Preview } from "@storybook/react-vite"
 import { createElement } from "react"
 
-import "@yb/tokens/styles.css"
-import "@yb/ui/styles.css"
-import { YBProvider, type YBLocaleCode } from "@yb/ui"
+import "@chenyibo111/tokens/styles.css"
+import "@chenyibo111/ui/styles.css"
+import { YBProvider, type YBLocaleCode } from "@chenyibo111/ui"
 
 const preview: Preview = {
   parameters: {

@@ -19,11 +19,11 @@ assert.deepEqual(
 )
 
 const expectedPackages = [
-  ["packages/tokens", "@yb/tokens"],
-  ["packages/icons", "@yb/icons"],
-  ["packages/ui", "@yb/ui"],
-  ["apps/playground", "@yb/playground"],
-  ["apps/storybook", "@yb/storybook"],
+  ["packages/tokens", "@chenyibo111/tokens"],
+  ["packages/icons", "@chenyibo111/icons"],
+  ["packages/ui", "@chenyibo111/ui"],
+  ["apps/playground", "@chenyibo111/playground"],
+  ["apps/storybook", "@chenyibo111/storybook"],
 ]
 
 for (const [directory, expectedName] of expectedPackages) {
