@@ -99,6 +99,17 @@ pnpm build
 pnpm build-storybook
 ```
 
+## 后续 npm 发布
+
+首次版本已发布。后续版本使用 Changesets 与 GitHub Actions Trusted Publishing，不在仓库或 GitHub Secrets 保存 npm Token。
+
+1. 修改公开包时运行 `pnpm changeset`，选择受影响的 `@chenyibo111/*` 包和语义化版本级别，并提交生成的 Changeset。
+2. 准备发布时运行 `pnpm version-packages`，提交由此生成的包版本、变更日志和锁文件到 `main`。
+3. 确认 npm 中的三个包都在 Settings → Trusted Publisher 中绑定 GitHub Actions：user or organization 为 `chenyibo111`，repository 为 `yb-ui`，workflow filename 为 `publish.yml`，并允许 `npm publish`。
+4. 在 GitHub Actions 手动运行 “Publish packages”，并选择 `main`。工作流会重新执行 `pnpm verify`，再发布 npm 中尚不存在的版本。
+
+`publish.yml` 不会因普通 push 或 tag 自动发布。工作流使用 GitHub OIDC 短期凭据；不要添加 `NPM_TOKEN`、`NODE_AUTH_TOKEN` 或 `.npmrc` 认证信息。
+
 ## 路线图
 
 下一阶段将完成首次 npm 发布与消费者安装验证，并持续扩展组件与文档。
