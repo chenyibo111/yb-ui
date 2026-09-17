@@ -1,0 +1,36 @@
+---
+title: Badge 徽标
+description: 用简短、静态的文本表达状态、分类或计数。
+---
+
+import { BadgeBasicExample } from "../../../../components/examples/badge/basic"
+
+export const badgeCode = `import { Badge } from "@chenyibo111/ui"
+
+<Badge variant="success">已启用</Badge>`
+
+`Badge` 是紧凑的状态展示，不包含动作行为。它通常与标题、列表项或表格字段一起使用。
+
+## 基础用法
+
+<ComponentPreview title="项目状态">
+  <BadgeBasicExample />
+</ComponentPreview>
+
+<SourceCode code={badgeCode} />
+
+## 何时不用
+
+可点击的筛选、切换和菜单操作应使用 Button、Tabs 或其他交互组件；不要让静态 Badge 看起来像按钮。
+
+## API
+
+<ApiTable rows={[
+  { name: "variant", type: "'default' | 'success' | 'warning' | 'destructive'", defaultValue: "'default'", description: "表达状态语义。" },
+  { name: "children", type: "ReactNode", defaultValue: "—", description: "保持简短且具备可读含义的状态文本。" }
+]} />
+
+## 可访问性
+
+- 徽标文本本身必须说明状态；颜色只是辅助。
+- 与图标并用时，不要重复同一条文字信息。

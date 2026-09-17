@@ -1,0 +1,38 @@
+---
+title: Spinner 加载指示
+description: 表示无法量化完成进度的短暂等待状态。
+---
+
+import { LoadingFeedbackExample } from "../../../../components/examples/spinner/loading"
+
+export const spinnerCode = `import { Button, Spinner } from "@chenyibo111/ui"
+
+<Button loading>保存更改</Button>
+<Spinner label="正在同步数据" />`
+
+`Spinner` 适合局部、短时且无法确定进度的操作。提交按钮优先使用 `loading`，它会同时禁用重复提交并提供状态文本。
+
+## 加载状态
+
+<ComponentPreview title="保存与同步">
+  <LoadingFeedbackExample />
+</ComponentPreview>
+
+<SourceCode code={spinnerCode} />
+
+## 何时不用
+
+可预估或较长的任务应提供实际进度信息；内容区首次加载且几何稳定更重要时使用 Skeleton。
+
+## API
+
+<ApiTable rows={[
+  { name: "label", type: "string", defaultValue: "—", description: "必填的可读加载说明。" },
+  { name: "className", type: "string", defaultValue: "undefined", description: "补充尺寸或布局，不改变状态语义。" },
+  { name: "Button loading", type: "boolean", defaultValue: "false", description: "在按钮中显示忙碌状态并禁用重复点击。" }
+]} />
+
+## 可访问性
+
+- `Spinner` 使用 `role="status"` 和必填 `label`。
+- Button 的 `loading` 会暴露“正在加载”状态；保留原按钮文案以维持上下文。

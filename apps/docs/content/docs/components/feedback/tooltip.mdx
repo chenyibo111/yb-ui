@@ -1,0 +1,45 @@
+---
+title: Tooltip 文字提示
+description: 为紧凑控件补充辅助说明，而不替代其可访问名称。
+---
+
+import { TooltipIconButtonExample } from "../../../../components/examples/tooltip/icon-button"
+
+export const tooltipCode = `import { AddIcon } from "@chenyibo111/icons"
+import { IconButton, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@chenyibo111/ui"
+
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <IconButton aria-label="创建项目"><AddIcon aria-hidden="true" /></IconButton>
+    </TooltipTrigger>
+    <TooltipContent>创建项目</TooltipContent>
+  </Tooltip>
+</TooltipProvider>`
+
+Tooltip 为图标按钮和术语补充上下文。它是发现性增强，不承担唯一的信息传达职责。
+
+## 图标按钮说明
+
+<ComponentPreview title="创建项目">
+  <TooltipIconButtonExample />
+</ComponentPreview>
+
+<SourceCode code={tooltipCode} />
+
+## 何时不用
+
+不要把必需说明、错误消息或唯一操作名称放进 Tooltip；触摸和键盘用户也必须在不悬停时理解界面。
+
+## API
+
+<ApiTable rows={[
+  { name: "TooltipProvider", type: "component", defaultValue: "—", description: "为一组 Tooltip 提供延迟与上下文。" },
+  { name: "TooltipTrigger", type: "component", defaultValue: "—", description: "使用 asChild 包装已有交互元素。" },
+  { name: "TooltipContent", type: "component", defaultValue: "—", description: "提供简短补充说明，可通过 sideOffset 调整间距。" }
+]} />
+
+## 可访问性
+
+- 图标按钮仍必须带有 `aria-label`；Tooltip 不替代它。
+- Tooltip 内容应补充而非重复复杂说明，并保持可通过键盘触发元素获得。

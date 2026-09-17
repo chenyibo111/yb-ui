@@ -1,0 +1,42 @@
+---
+title: Empty 空状态
+description: 当内容不存在时说明原因，并在合适时引导下一步操作。
+---
+
+import { EmptyBasicExample } from "../../../../components/examples/empty/basic"
+
+export const emptyCode = `import { Button, Empty } from "@chenyibo111/ui"
+
+<Empty
+  action={<Button>新建项目</Button>}
+  description="创建第一个项目后，它会显示在这里。"
+  title="暂无项目"
+/>`
+
+`Empty` 用于真正没有内容的状态。它应解释当前为什么为空，并只提供与该状态相关的恢复动作。
+
+## 基础用法
+
+<ComponentPreview title="项目空状态">
+  <EmptyBasicExample />
+</ComponentPreview>
+
+<SourceCode code={emptyCode} />
+
+## 何时不用
+
+加载中、请求失败或无搜索结果不是同一种空状态；分别使用 Skeleton/Spinner、Alert 或明确的“未找到结果”文案。
+
+## API
+
+<ApiTable rows={[
+  { name: "title", type: "string", defaultValue: "—", description: "简明描述当前没有什么内容。" },
+  { name: "description", type: "ReactNode", defaultValue: "undefined", description: "补充原因或下一步说明。" },
+  { name: "action", type: "ReactNode", defaultValue: "undefined", description: "可选的恢复或创建操作。" },
+  { name: "icon", type: "ReactNode", defaultValue: "undefined", description: "可选的辅助图标，不替代标题。" }
+]} />
+
+## 可访问性
+
+- 标题应描述实际状态，不要只写“没有数据”。
+- `action` 必须使用语义按钮或链接，并说明发生什么。

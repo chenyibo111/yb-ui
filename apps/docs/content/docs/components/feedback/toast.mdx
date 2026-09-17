@@ -1,0 +1,47 @@
+---
+title: Toast 轻提示
+description: 在不打断当前流程的前提下，短暂确认一个非关键结果。
+---
+
+import { ToastTriggerExample } from "../../../../components/examples/toast/trigger"
+
+export const toastCode = `import { useState } from "react"
+import { Button, Toast, ToastProvider, ToastTitle, ToastViewport } from "@chenyibo111/ui"
+
+const [open, setOpen] = useState(false)
+
+<ToastProvider>
+  <Button onClick={() => setOpen(true)}>显示保存提示</Button>
+  <Toast open={open} onOpenChange={setOpen}>
+    <ToastTitle>项目已保存</ToastTitle>
+  </Toast>
+  <ToastViewport />
+</ToastProvider>`
+
+Toast 由应用明确控制打开状态，并通过统一的 Viewport 展示。它适合“已保存”“已复制”等可短暂确认的结果。
+
+## 明确触发
+
+<ComponentPreview title="保存确认">
+  <ToastTriggerExample />
+</ComponentPreview>
+
+<SourceCode code={toastCode} />
+
+## 何时不用
+
+Toast 不应承载唯一的错误原因或恢复指引。用户必须修正的问题应保留在 Field 或 Alert 中。
+
+## API
+
+<ApiTable rows={[
+  { name: "ToastProvider", type: "component", defaultValue: "—", description: "在应用或页面范围内提供 Toast 上下文。" },
+  { name: "open / onOpenChange", type: "boolean / callback", defaultValue: "undefined", description: "控制提示是否可见。" },
+  { name: "ToastAction", type: "component", defaultValue: "undefined", description: "可选、可恢复的后续操作，必须提供 altText。" },
+  { name: "ToastViewport", type: "component", defaultValue: "—", description: "提供稳定的全局提示位置。" }
+]} />
+
+## 可访问性
+
+- 保持标题短而明确，避免连续重复触发相同 Toast。
+- 关键错误和必需操作不要只放在会自动消失的 Toast 中。

@@ -1,0 +1,40 @@
+---
+title: Alert 提示
+description: 在页面内呈现成功、风险或需要处理的重要状态。
+---
+
+import { AlertVariantsExample } from "../../../../components/examples/alert/variants"
+
+export const alertCode = `import { Alert, AlertDescription, AlertTitle } from "@chenyibo111/ui"
+
+<Alert variant="destructive">
+  <AlertTitle>删除后无法恢复</AlertTitle>
+  <AlertDescription>继续前请确认该项目不再需要保留。</AlertDescription>
+</Alert>`
+
+`Alert` 用于页面内需要持续可见的反馈。它适合解释后果、指出下一步，或承载需要恢复操作的错误。
+
+## 语义变体
+
+<ComponentPreview title="Alert 变体">
+  <AlertVariantsExample />
+</ComponentPreview>
+
+<SourceCode code={alertCode} />
+
+## 何时不用
+
+短暂确认可以使用 Toast；不应把会立即消失的提示作为用户修复错误的唯一依据。
+
+## API
+
+<ApiTable rows={[
+  { name: "variant", type: "'default' | 'info' | 'success' | 'warning' | 'destructive'", defaultValue: "'default'", description: "表达反馈的语义和风险级别。" },
+  { name: "AlertTitle", type: "component", defaultValue: "—", description: "提供简明、可扫描的状态标题。" },
+  { name: "AlertDescription", type: "component", defaultValue: "—", description: "说明影响、原因或可恢复的下一步。" }
+]} />
+
+## 可访问性
+
+- `destructive` 自动使用 `role="alert"`；其他变体使用 `role="status"`。
+- 不要只以颜色表达状态，标题和说明应完整传达风险与操作。

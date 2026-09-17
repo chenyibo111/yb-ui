@@ -1,0 +1,36 @@
+---
+title: Skeleton 骨架屏
+description: 在内容加载前保留稳定的页面几何，减少布局跳动。
+---
+
+import { SkeletonBasicExample } from "../../../../components/examples/skeleton/basic"
+
+export const skeletonCode = `import { Skeleton } from "@chenyibo111/ui"
+
+<Skeleton style={{ height: "var(--yb-space-4)", width: "calc(var(--yb-space-10) * 7)" }} />`
+
+`Skeleton` 只表达正在加载的占位结构。它的尺寸应该接近最终内容，而不是随意堆叠成装饰。
+
+## 稳定的内容几何
+
+<ComponentPreview title="内容加载占位">
+  <SkeletonBasicExample />
+</ComponentPreview>
+
+<SourceCode code={skeletonCode} />
+
+## 何时不用
+
+短暂、不可量化的等待更适合 Spinner。请求失败后必须替换为可恢复的错误状态，不能无限显示骨架屏。
+
+## API
+
+<ApiTable rows={[
+  { name: "className", type: "string", defaultValue: "undefined", description: "在应用样式中补充与最终内容一致的几何。" },
+  { name: "style", type: "CSSProperties", defaultValue: "undefined", description: "用公开 Token 设置稳定宽高或圆角。" }
+]} />
+
+## 可访问性
+
+- Skeleton 默认 `aria-hidden`，不应成为屏幕阅读器中的无意义内容。
+- 在其附近提供真实的加载状态文本，或让父区域明确声明忙碌状态。
