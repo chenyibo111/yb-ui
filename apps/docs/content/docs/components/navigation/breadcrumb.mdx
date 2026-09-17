@@ -1,0 +1,12 @@
+---
+title: Breadcrumb 面包屑
+description: 展示当前页面在信息层级中的位置。
+---
+import { BreadcrumbExample } from "../../../../components/examples/breadcrumb/basic"
+
+<ComponentPreview title="当前位置"><BreadcrumbExample /></ComponentPreview>
+<SourceCode code={"import { Breadcrumb, BreadcrumbLink, BreadcrumbPage } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"BreadcrumbPage",type:"component",defaultValue:"—",description:"标记当前页。"}]} />
+## 可访问性
+- 当前页使用 aria-current，只让真实祖先页面成为链接。

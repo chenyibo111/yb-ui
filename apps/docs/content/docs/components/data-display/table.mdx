@@ -1,0 +1,12 @@
+---
+title: Table 表格
+description: 用原生表格语义展示结构化数据。
+---
+import { TableExample } from "../../../../components/examples/table/basic"
+
+<ComponentPreview title="项目状态"><TableExample /></ComponentPreview>
+<SourceCode code={"import { Table, TableCaption, TableHead, TableRow } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"TableCaption",type:"component",defaultValue:"undefined",description:"说明整张表的数据主题。"}]} />
+## 可访问性
+- Caption 与表头使辅助技术理解数据关系；虚拟滚动属于数据网格职责。

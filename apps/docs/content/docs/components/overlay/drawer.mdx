@@ -1,0 +1,12 @@
+---
+title: Drawer 抽屉
+description: 从页面边缘展示补充信息或连续操作。
+---
+import { DrawerExample } from "../../../../components/examples/drawer/basic"
+
+<ComponentPreview title="项目详情"><DrawerExample /></ComponentPreview>
+<SourceCode code={"import { Drawer, DrawerContent, DrawerTrigger } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"side",type:"'left' | 'right' | 'top' | 'bottom'",defaultValue:"'right'",description:"抽屉出现的边缘。"}]} />
+## 可访问性
+- 提供标题和说明；Escape 可关闭并恢复焦点。需要确认时使用 Dialog。

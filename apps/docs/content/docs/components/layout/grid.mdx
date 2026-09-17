@@ -1,0 +1,12 @@
+---
+title: Grid 网格布局
+description: 以响应式列组织并列内容。
+---
+import { GridExample } from "../../../../components/examples/grid/basic"
+
+<ComponentPreview title="能力入口"><GridExample /></ComponentPreview>
+<SourceCode code={"import { Grid } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"columns",type:"1 | 2 | 3 | 4 | 5 | 6",defaultValue:"1",description:"网格列数。"}]} />
+## 可访问性
+- DOM 顺序应与窄屏阅读顺序一致；线性内容使用 Stack。

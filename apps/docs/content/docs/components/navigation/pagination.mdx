@@ -1,0 +1,12 @@
+---
+title: Pagination 分页
+description: 在页码明确的数据集合中切换页面。
+---
+import { PaginationExample } from "../../../../components/examples/pagination/basic"
+
+<ComponentPreview title="项目列表"><PaginationExample /></ComponentPreview>
+<SourceCode code={"import { Pagination } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"page / pageCount",type:"number",defaultValue:"—",description:"当前页和总页数。"},{name:"onPageChange",type:"(page) => void",defaultValue:"—",description:"切换页面时调用。"}]} />
+## 可访问性
+- 当前页带有 aria-current，页码均有本地化名称。

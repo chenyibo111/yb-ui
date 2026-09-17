@@ -1,0 +1,12 @@
+---
+title: Avatar 头像
+description: 用图片或文字回退展示人物身份。
+---
+import { AvatarExample } from "../../../../components/examples/avatar/basic"
+
+<ComponentPreview title="成员"><AvatarExample /></ComponentPreview>
+<SourceCode code={"import { Avatar, AvatarFallback, AvatarImage } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"AvatarFallback",type:"component",defaultValue:"—",description:"图片不可用时展示简称。"}]} />
+## 可访问性
+- 保留可见姓名；图片 alt 与容器名称必须一致。

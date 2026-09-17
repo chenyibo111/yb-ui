@@ -1,0 +1,12 @@
+---
+title: IconButton 图标按钮
+description: 用图标承载紧凑操作，并要求可访问名称。
+---
+import { IconButtonExample } from "../../../../components/examples/icon-button/basic"
+
+<ComponentPreview title="新建项目"><IconButtonExample /></ComponentPreview>
+<SourceCode code={"import { IconButton } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"aria-label",type:"string",defaultValue:"—",description:"必填的可访问操作名称。"}]} />
+## 可访问性
+- 每个 IconButton 必须有准确的 aria-label；陌生操作使用文字 Button。

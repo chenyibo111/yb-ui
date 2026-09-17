@@ -1,0 +1,12 @@
+---
+title: Stack 堆叠布局
+description: 按单一方向组织带有一致节奏的内容。
+---
+import { StackExample } from "../../../../components/examples/stack/basic"
+
+<ComponentPreview title="状态说明"><StackExample /></ComponentPreview>
+<SourceCode code={"import { Stack } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"direction",type:"'vertical' | 'horizontal'",defaultValue:"'vertical'",description:"排列方向。"},{name:"gap",type:"Space",defaultValue:"'3'",description:"公开 Token 间距。"}]} />
+## 可访问性
+- 只改变视觉布局，不改变 DOM 阅读顺序。

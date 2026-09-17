@@ -1,0 +1,12 @@
+---
+title: Card 卡片
+description: 将相关内容与操作组织为独立表面。
+---
+import { CardExample } from "../../../../components/examples/card/basic"
+
+<ComponentPreview title="内容摘要"><CardExample /></ComponentPreview>
+<SourceCode code={"import { Card, CardContent, CardHeader, CardTitle } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"CardHeader / CardContent / CardFooter",type:"component",defaultValue:"undefined",description:"组织标题、内容和操作。"}]} />
+## 可访问性
+- Card 使用 section；长列表和主布局不应堆叠大量 Card。

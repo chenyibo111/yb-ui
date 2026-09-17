@@ -1,0 +1,12 @@
+---
+title: Text 文本
+description: 统一正文、说明与语义强调的文本排版。
+---
+import { TextExample } from "../../../../components/examples/text/basic"
+
+<ComponentPreview title="文本层级"><TextExample /></ComponentPreview>
+<SourceCode code={"import { Text } from '@chenyibo111/ui'"} />
+## API
+<ApiTable rows={[{name:"as",type:"ElementType",defaultValue:"'p'",description:"选择语义元素。"},{name:"tone",type:"TextTone",defaultValue:"'default'",description:"语义色调。"}]} />
+## 可访问性
+- 含义不能只依赖 tone；标题、链接和按钮使用各自语义组件。
