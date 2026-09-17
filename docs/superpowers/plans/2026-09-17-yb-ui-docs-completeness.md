@@ -77,12 +77,14 @@ apps/docs/
 
 - [ ] **Step 1: 写组件目录的失败测试**
 
-创建 `component-catalog.test.tsx`，渲染两个最小条目并断言分类标题、组件名称、摘要和链接均可访问：
+创建 `component-catalog.test.tsx`，渲染一个已完善和一个待完善的最小条目，断言分类标题与摘要可访问；仅已完善的组件可点击，待完善项展示状态而不生成失效链接：
 
 ```tsx
 render(<ComponentCatalog entries={entries} />)
 expect(screen.getByRole("heading", { name: "表单与输入" })).toBeInTheDocument()
-expect(screen.getByRole("link", { name: "Select 选择器" })).toHaveAttribute("href", "/docs/components/select")
+expect(screen.getByRole("link", { name: "Button 按钮" })).toHaveAttribute("href", "/docs/components/button")
+expect(screen.getByText("文档编写中")).toBeInTheDocument()
+expect(screen.queryByRole("link", { name: "Select 选择器" })).not.toBeInTheDocument()
 ```
 
 - [ ] **Step 2: 运行测试并确认红灯**
