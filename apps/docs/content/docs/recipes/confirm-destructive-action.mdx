@@ -1,0 +1,37 @@
+---
+title: 危险操作确认
+description: 将不可逆操作放入明确的确认流程，避免误触。
+---
+
+import { ConfirmDestructiveActionRecipe } from "../../../components/recipes/confirm-destructive-action"
+
+删除、归档和清空等难以恢复的操作，需要在最终执行前说明后果，并让用户主动确认。
+
+## 示例
+
+<ComponentPreview title="删除前确认">
+  <ConfirmDestructiveActionRecipe />
+</ComponentPreview>
+
+## 最小实现
+
+```tsx
+<Dialog>
+  <DialogTrigger asChild>
+    <Button variant="destructive">删除项目</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogTitle>确认删除项目？</DialogTitle>
+    <DialogDescription>删除后无法恢复，请确认没有成员仍在使用该项目。</DialogDescription>
+    <DialogClose asChild>
+      <Button onClick={deleteProject} variant="destructive">确认删除</Button>
+    </DialogClose>
+  </DialogContent>
+</Dialog>
+```
+
+## 适用范围与边界
+
+- 适用于删除资源、撤销发布、批量清空等不可逆或影响范围大的动作。
+- 二次确认不是权限校验的替代品；服务端仍需验证操作权限。
+- 可撤销的轻量动作通常更适合 Toast 加撤销入口，而不是频繁弹出 Dialog。

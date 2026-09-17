@@ -1,0 +1,47 @@
+---
+title: 消费者 CSS 扩展边界
+description: 使用公开 Props、className 和 Token 扩展界面，而不绑定组件内部实现。
+---
+
+消费者项目可以组合组件、传入 `className`，以及使用 `--yb-*` 语义 Token；不要覆盖 `.yb-*` 内部类，也不要依赖 `yb-*` 动画名称。这些内部实现可能随组件库版本调整。
+
+## 样式导入顺序
+
+先加载 Token，再加载组件库样式，最后加载应用自己的 CSS。应用样式可以安全地引用公开 Token。
+
+```tsx
+import "@chenyibo111/tokens/styles.css"
+import "@chenyibo111/ui/styles.css"
+import "./app.css"
+```
+
+## 通过自有选择器扩展
+
+将样式钩子放在应用侧命名空间中，再以 `className` 传入组件。不要选择 `.yb-card-content` 之类的内部类名。
+
+```tsx
+import { Card, CardContent, CardTitle } from "@chenyibo111/ui"
+
+export function ProjectSummary() {
+  return (
+    <Card>
+      <CardTitle>本周项目摘要</CardTitle>
+      <CardContent className="project-summary__content">需要跟进 3 个项目。</CardContent>
+    </Card>
+  )
+}
+```
+
+```css
+.project-summary__content {
+  border-inline-start: var(--yb-border-width-1) solid var(--yb-color-primary-500);
+  color: var(--yb-color-text-secondary);
+  padding-inline-start: var(--yb-space-4);
+}
+```
+
+## 适用范围与边界
+
+- 优先使用组件公开的 `variant`、`size`、`disabled` 等 Props 表达意图。
+- 使用 `--yb-*` 变量共享色彩、间距、圆角和阴影，而不是复制具体色值。
+- 若当前公开 API 无法表达通用需求，请在组件库中补充公开能力，而不是在消费者侧覆盖内部结构。

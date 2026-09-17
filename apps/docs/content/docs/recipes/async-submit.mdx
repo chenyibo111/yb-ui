@@ -1,0 +1,41 @@
+---
+title: 异步提交与错误恢复
+description: 用明确的提交中、失败和可重试状态保护用户输入。
+---
+
+import { AsyncSubmitRecipe } from "../../../components/recipes/async-submit"
+
+异步提交时，按钮的 loading 状态只表示请求仍在进行；失败后应保留表单内容，并在原位置提供可以恢复的信息。
+
+## 示例
+
+<ComponentPreview title="保留输入的失败状态">
+  <AsyncSubmitRecipe />
+</ComponentPreview>
+
+## 最小实现
+
+```tsx
+const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle")
+
+async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  event.preventDefault()
+  setStatus("submitting")
+  try {
+    await saveProject(name)
+  } catch {
+    setStatus("error")
+  }
+}
+
+<Field error={status === "error" ? "保存失败，请稍后重试。" : undefined} label="项目名称">
+  <Input onChange={(event) => setName(event.target.value)} value={name} />
+</Field>
+<Button loading={status === "submitting"} type="submit">保存项目</Button>
+```
+
+## 适用范围与边界
+
+- 适用于创建、保存和更新等用户需要明确等待结果的操作。
+- 不要在失败时直接清空输入；除非业务明确要求，用户应能修正后立即重试。
+- 对于无需用户停留处理的短暂成功反馈，可以补充 Toast；错误恢复仍应在页面中可见。

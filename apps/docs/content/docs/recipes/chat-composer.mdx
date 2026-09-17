@@ -1,0 +1,38 @@
+---
+title: 聊天输入框
+description: 为消息发送提供多行输入、快捷键和可理解的发送状态。
+---
+
+import { ChatComposerRecipe } from "../../../components/recipes/chat-composer"
+
+聊天输入不同于普通长文本：用户需要清晰知道何时会发送、何时能够换行，以及发送过程中的输入边界。
+
+## 示例
+
+<ComponentPreview title="带发送状态的聊天输入">
+  <ChatComposerRecipe />
+</ComponentPreview>
+
+## 最小实现
+
+```tsx
+<Textarea
+  onKeyDown={(event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault()
+      void sendMessage()
+    }
+  }}
+  placeholder="输入一条回复…"
+  value={message}
+/>
+<Button disabled={!message.trim()} loading={sending} onClick={() => void sendMessage()}>
+  发送回复
+</Button>
+```
+
+## 适用范围与边界
+
+- Enter 发送、Shift + Enter 换行是常见约定；若业务不同，应在控件附近明确提示。
+- 空消息和发送中必须禁用发送，避免重复提交。
+- 附件、@提及、草稿同步和消息失败队列属于业务能力，应在此基础上扩展。

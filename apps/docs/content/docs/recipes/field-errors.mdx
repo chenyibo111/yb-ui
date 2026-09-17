@@ -1,0 +1,35 @@
+---
+title: 字段错误
+description: 将校验结果与具体输入控件关联，便于定位和修复。
+---
+
+import { FieldErrorsRecipe } from "../../../components/recipes/field-errors"
+
+字段错误应放在对应控件旁，由 `Field error` 关联到输入框；不要只在提交后显示一条笼统的页面错误。
+
+## 示例
+
+<ComponentPreview title="可访问的字段错误">
+  <FieldErrorsRecipe />
+</ComponentPreview>
+
+## 最小实现
+
+```tsx
+const error = submitted && !email.includes("@") ? "请输入有效的工作邮箱地址。" : undefined
+
+<Field
+  description="我们只会将项目通知发送到这个地址。"
+  error={error}
+  label="工作邮箱"
+  required
+>
+  <Input onChange={(event) => setEmail(event.target.value)} type="email" value={email} />
+</Field>
+```
+
+## 适用范围与边界
+
+- `Field` 会将错误描述关联给控件，并标记无效状态。
+- 同一字段有格式和业务规则时，优先展示当前最可执行的一条错误。
+- 不要只用红色边框表达错误；错误文案必须说明如何修复。

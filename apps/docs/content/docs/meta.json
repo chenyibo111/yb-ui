@@ -1,4 +1,4 @@
 {
   "title": "YB UI",
-  "pages": ["getting-started", "foundations", "components"]
+  "pages": ["getting-started", "foundations", "components", "recipes"]
 }
