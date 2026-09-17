@@ -1,4 +1,4 @@
 {
   "title": "设计规范",
-  "pages": ["color", "typography", "spacing-and-layout", "themes"]
+  "pages": ["color", "token-reference", "typography", "spacing-and-layout", "themes"]
 }
