@@ -1,0 +1,38 @@
+---
+title: Calendar 日历
+description: 提供单日、日期范围等日期选择的日历视图。
+---
+
+import { CalendarBasicExample } from "../../../../components/examples/calendar/basic"
+
+export const calendarCode = `import { Calendar } from "@chenyibo111/ui"
+
+<Calendar mode="single" selected={selected} onSelect={setSelected} />`
+
+`Calendar` 基于 DayPicker 提供日期网格，适合嵌入表单、筛选区或自定义日期操作面板。
+
+## 单日期选择
+
+<ComponentPreview title="选择日期">
+  <CalendarBasicExample />
+</ComponentPreview>
+
+<SourceCode code={calendarCode} />
+
+## 何时不用
+
+仅需要紧凑触发器和弹出日历时，使用 `DatePicker`。业务系统的工作日、节假日、禁用日期和时区规则应由应用层明确提供。
+
+## API
+
+<ApiTable rows={[
+  { name: "mode", type: "'single' | 'multiple' | 'range'", defaultValue: "undefined", description: "选择模式。" },
+  { name: "selected / defaultSelected", type: "Date | Date[] | DateRange", defaultValue: "undefined", description: "控制或初始化日期值。" },
+  { name: "onSelect", type: "(value) => void", defaultValue: "undefined", description: "日期选择改变时调用。" },
+  { name: "disabled", type: "Matcher | Matcher[]", defaultValue: "undefined", description: "限制不可选择的日期。" }
+]} />
+
+## 可访问性
+
+- 日历使用本地化的月份与导航文案；默认继承 YB Provider 的中文 locale。
+- 明确说明禁用日期的业务原因，避免只以灰色外观表达不可用。

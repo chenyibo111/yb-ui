@@ -1,0 +1,41 @@
+---
+title: Switch 开关
+description: 用于立即生效的布尔设置。
+---
+
+import { SwitchBasicExample } from "../../../../components/examples/switch/basic"
+
+export const switchCode = `import { Switch } from "@chenyibo111/ui"
+
+<label>
+  <Switch aria-label="任务完成后通知我" defaultChecked />
+  任务完成后通知我
+</label>`
+
+`Switch` 表示打开或关闭一个设置。用户切换后应立即生效或立即显示明确的保存反馈。
+
+## 基础用法
+
+<ComponentPreview title="通知设置">
+  <SwitchBasicExample />
+</ComponentPreview>
+
+<SourceCode code={switchCode} />
+
+## 何时不用
+
+需要在表单提交时统一保存的选择，使用 `Checkbox` 更容易表达“已选中但尚未提交”的状态。
+
+## API
+
+<ApiTable rows={[
+  { name: "checked / defaultChecked", type: "boolean", defaultValue: "false", description: "控制或初始化开启状态。" },
+  { name: "onCheckedChange", type: "(checked: boolean) => void", defaultValue: "undefined", description: "状态切换时调用。" },
+  { name: "disabled", type: "boolean", defaultValue: "false", description: "禁用切换。" },
+  { name: "required", type: "boolean", defaultValue: "false", description: "在表单场景中标记为必填。" }
+]} />
+
+## 可访问性
+
+- 提供可见文本、`aria-label` 或与 `Field` 组合，说明该开关控制什么。
+- 不能仅靠颜色区分开启和关闭状态，状态必须可被辅助技术读取。

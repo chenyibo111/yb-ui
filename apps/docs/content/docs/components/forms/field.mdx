@@ -1,0 +1,46 @@
+---
+title: Field 字段
+description: 将标签、说明、校验提示与唯一表单控件关联起来。
+---
+
+import { FieldErrorExample } from "../../../../components/examples/field/error"
+
+export const fieldCode = `import { Field, Input } from "@chenyibo111/ui"
+
+<Field
+  description="请使用公司邮箱，格式如 name@example.com。"
+  error="请输入有效的工作邮箱地址。"
+  label="工作邮箱"
+  required
+>
+  <Input type="email" />
+</Field>`
+
+`Field` 用于补齐原生控件周围的语义信息。它只接受一个表单控件子元素，适合 Input、Textarea、Select 触发器等需要标签和错误说明的场景。
+
+## 错误状态
+
+<ComponentPreview title="带说明与错误的字段">
+  <FieldErrorExample />
+</ComponentPreview>
+
+<SourceCode code={fieldCode} />
+
+## 何时不用
+
+没有可编辑控件的静态说明、多个独立控件组成的复杂区域，不应套在同一个 `Field` 中；请为每个可校验控件单独建立字段。
+
+## API
+
+<ApiTable rows={[
+  { name: "label", type: "ReactNode", defaultValue: "undefined", description: "生成与子控件关联的可见标签。" },
+  { name: "description", type: "ReactNode", defaultValue: "undefined", description: "提供填写格式或用途说明。" },
+  { name: "error", type: "ReactNode", defaultValue: "undefined", description: "显示错误并为子控件设置 aria-invalid。" },
+  { name: "required", type: "boolean", defaultValue: "false", description: "标记字段为必填，并透传给未自行设置 required 的子控件。" }
+]} />
+
+## 可访问性
+
+- `label` 会通过 `htmlFor` 关联到控件。
+- `description` 和 `error` 会并入 `aria-describedby`；错误信息同时带有 `role="alert"`。
+- 校验时机、聚焦第一个错误字段和提交策略由业务表单负责。

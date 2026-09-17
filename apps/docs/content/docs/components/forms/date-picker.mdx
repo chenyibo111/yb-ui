@@ -1,0 +1,38 @@
+---
+title: DatePicker 日期选择
+description: 以紧凑触发器和弹出日历选择日期。
+---
+
+import { DatePickerBasicExample } from "../../../../components/examples/date-picker/basic"
+
+export const datePickerCode = `import { DatePicker } from "@chenyibo111/ui"
+
+<DatePicker mode="single" />`
+
+`DatePicker` 将 Trigger 与 `Calendar` 组合，适合普通表单中的单日或日期范围选择。
+
+## 基础用法
+
+<ComponentPreview title="日期选择">
+  <DatePickerBasicExample />
+</ComponentPreview>
+
+<SourceCode code={datePickerCode} />
+
+## 日期值与时区
+
+组件返回的日期值及其序列化、存储、跨时区展示策略由业务应用决定。涉及服务端日期时，应在应用契约中明确日期与时刻的边界，避免仅靠格式化字符串推断时区。
+
+## API
+
+<ApiTable rows={[
+  { name: "mode", type: "'single' | 'range'", defaultValue: "'single'", description: "选择单日或一个日期范围。" },
+  { name: "selected / defaultSelected", type: "Date | DateRange", defaultValue: "undefined", description: "控制或初始化日期值。" },
+  { name: "onSelect", type: "(value) => void", defaultValue: "undefined", description: "日期改变时调用。" },
+  { name: "disabled", type: "Matcher | Matcher[]", defaultValue: "undefined", description: "限制不可选择的日期。" }
+]} />
+
+## 可访问性
+
+- 默认中文环境下，触发器名称为“选择日期”；日期范围模式为“选择日期范围”。
+- 弹层打开后遵循 Calendar 的键盘导航；Escape 可关闭并回到触发器。

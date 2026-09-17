@@ -298,6 +298,13 @@ a.yb-docs-component-catalog-item-name:hover {
   margin: 0;
 }
 
+.yb-docs-inline-control {
+  align-items: center;
+  cursor: pointer;
+  display: inline-flex;
+  gap: var(--yb-space-2);
+}
+
 @media (max-width: 48rem) {
   .yb-docs-home-grid {
     grid-template-columns: 1fr;

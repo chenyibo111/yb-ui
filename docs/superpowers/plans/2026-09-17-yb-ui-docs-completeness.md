@@ -145,7 +145,7 @@ git commit -m "docs: add component catalog and overview"
 ```tsx
 await user.click(screen.getByRole("combobox", { name: "处理优先级" }))
 await user.keyboard("{ArrowDown}{Enter}")
-expect(screen.getByRole("combobox", { name: "处理优先级" })).toHaveTextContent("高")
+expect(screen.getByRole("combobox", { name: "处理优先级" })).toHaveTextContent("中")
 ```
 
 - [ ] **Step 2: 运行测试并确认红灯**

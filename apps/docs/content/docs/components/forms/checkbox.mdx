@@ -1,0 +1,41 @@
+---
+title: Checkbox 复选框
+description: 用于独立确认或多个可并存选项的开关。
+---
+
+import { CheckboxBasicExample } from "../../../../components/examples/checkbox/basic"
+
+export const checkboxCode = `import { Checkbox } from "@chenyibo111/ui"
+
+<label>
+  <Checkbox defaultChecked />
+  接收产品更新邮件
+</label>`
+
+`Checkbox` 适合互不排斥的选择或明确确认。需要在一组选项中只能选一个值时，请使用 `RadioGroup`。
+
+## 基础用法
+
+<ComponentPreview title="通知偏好">
+  <CheckboxBasicExample />
+</ComponentPreview>
+
+<SourceCode code={checkboxCode} />
+
+## 何时不用
+
+立即生效的单一设置更适合 `Switch`；不要用复选框模拟一次性危险操作的最终确认。
+
+## API
+
+<ApiTable rows={[
+  { name: "checked / defaultChecked", type: "boolean | 'indeterminate'", defaultValue: "false", description: "控制或初始化选择状态。" },
+  { name: "onCheckedChange", type: "(checked) => void", defaultValue: "undefined", description: "状态改变时调用。" },
+  { name: "disabled", type: "boolean", defaultValue: "false", description: "禁用选择。" },
+  { name: "required", type: "boolean", defaultValue: "false", description: "在表单中标记为必填。" }
+]} />
+
+## 可访问性
+
+- 始终以可点击的 `label` 或 `aria-label` 提供名称。
+- 不确定状态只用于表达一组选项的部分选择，不替代业务错误状态。

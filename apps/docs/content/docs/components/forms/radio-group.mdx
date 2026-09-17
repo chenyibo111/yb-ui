@@ -1,0 +1,37 @@
+---
+title: RadioGroup 单选组
+description: 在少量互斥选项中选择一个值。
+---
+
+import { RadioGroupBasicExample } from "../../../../components/examples/radio-group/basic"
+
+export const radioCode = `import { RadioGroup, RadioGroupItem } from "@chenyibo111/ui"
+
+<RadioGroup aria-label="项目可见范围" defaultValue="team">
+  <label><RadioGroupItem value="team" />团队成员可见</label>
+  <label><RadioGroupItem value="private" />仅自己可见</label>
+</RadioGroup>`
+
+`RadioGroup` 用于固定、数量较少且必须互斥的选项。选项很多、需要搜索或需要自定义弹层时，应使用 `Select`。
+
+## 基础用法
+
+<ComponentPreview title="项目可见范围">
+  <RadioGroupBasicExample />
+</ComponentPreview>
+
+<SourceCode code={radioCode} />
+
+## API
+
+<ApiTable rows={[
+  { name: "value / defaultValue", type: "string", defaultValue: "undefined", description: "控制或初始化当前选中值。" },
+  { name: "onValueChange", type: "(value: string) => void", defaultValue: "undefined", description: "选项改变时调用。" },
+  { name: "orientation", type: "'horizontal' | 'vertical'", defaultValue: "'vertical'", description: "声明选项排列方向。" },
+  { name: "disabled", type: "boolean", defaultValue: "false", description: "禁用整个单选组或单个 RadioGroupItem。" }
+]} />
+
+## 可访问性
+
+- 给单选组提供 `aria-label`，或使用应用层的语义分组标签。
+- 每个 `RadioGroupItem` 都需要可读名称；示例使用 `label` 扩大可点击区域。

@@ -1,0 +1,47 @@
+---
+title: Select 选择器
+description: 在预定义选项中选择一个值的受控浮层组件。
+---
+
+import { SelectControlledExample } from "../../../../components/examples/select/controlled"
+
+export const selectCode = `import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@chenyibo111/ui"
+
+<Select value={priority} onValueChange={setPriority}>
+  <SelectTrigger aria-label="处理优先级">
+    <SelectValue placeholder="选择优先级" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="high">高</SelectItem>
+    <SelectItem value="medium">中</SelectItem>
+    <SelectItem value="low">低</SelectItem>
+  </SelectContent>
+</Select>`
+
+`Select` 由 Trigger、Content 和 Item 组合，适合由组件库统一拥有弹层几何与键盘交互的固定选项。
+
+## 受控选择
+
+<ComponentPreview title="处理优先级">
+  <SelectControlledExample />
+</ComponentPreview>
+
+<SourceCode code={selectCode} />
+
+## 何时不用
+
+不要把 `Select` 当作原生 `<select>` 的样式替代品来猜测菜单打开逻辑。需要自由输入、远程搜索或大量选项时，应使用专门的 Combobox/搜索方案。
+
+## API
+
+<ApiTable rows={[
+  { name: "value / defaultValue", type: "string", defaultValue: "undefined", description: "控制或初始化选中值。" },
+  { name: "onValueChange", type: "(value: string) => void", defaultValue: "undefined", description: "选择完成时调用。" },
+  { name: "SelectTrigger", type: "component", defaultValue: "—", description: "必须提供可访问名称或与 Field 组合。" },
+  { name: "SelectItem", type: "component", defaultValue: "—", description: "每项使用稳定且唯一的 value。" }
+]} />
+
+## 可访问性
+
+- 触发器可通过 ArrowDown、ArrowUp、Enter 与 Escape 完成键盘操作。
+- 不要只用 placeholder 命名选择器；使用 `aria-label` 或 `Field` 标签。

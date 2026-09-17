@@ -1,0 +1,40 @@
+---
+title: Textarea 多行输入
+description: 用于录入说明、备注和消息等多行文本。
+---
+
+import { TextareaBasicExample } from "../../../../components/examples/textarea/basic"
+
+export const textareaCode = `import { Field, Textarea } from "@chenyibo111/ui"
+
+<Field description="最多 500 个字符。" label="任务说明">
+  <Textarea placeholder="描述这项任务的目标和限制" rows={4} />
+</Field>`
+
+`Textarea` 保留原生 `<textarea>` 的受控属性、ref 和输入事件。它适合需要多行内容的常规表单字段。
+
+## 基础用法
+
+<ComponentPreview title="任务说明">
+  <TextareaBasicExample />
+</ComponentPreview>
+
+<SourceCode code={textareaCode} />
+
+## 聊天输入与长文本
+
+聊天输入通常需要应用层的自动增高、发送快捷键和明确的发送状态；不要将这些业务行为固化到 `Textarea`。普通长文本可使用合适的 `rows`，并根据页面布局决定是否允许用户调整尺寸。
+
+## API
+
+<ApiTable rows={[
+  { name: "rows", type: "number", defaultValue: "undefined", description: "设置初始可见行数。" },
+  { name: "value / defaultValue", type: "string", defaultValue: "undefined", description: "遵循原生受控与非受控文本域约定。" },
+  { name: "disabled", type: "boolean", defaultValue: "false", description: "禁用编辑和原生交互。" },
+  { name: "placeholder", type: "string", defaultValue: "undefined", description: "仅提供格式提示，不能替代标签。" }
+]} />
+
+## 可访问性
+
+- 使用 `Field` 或原生 `label` 提供可见名称。
+- 将字符数限制、错误和格式要求以文本传达，而非只依赖颜色或 placeholder。
