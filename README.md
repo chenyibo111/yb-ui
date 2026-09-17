@@ -1,8 +1,8 @@
 # YB UI
 
-基于 React、Radix UI 与 CSS Variables 构建的内部通用组件库。首期采用 **Cobalt Pulse（钴蓝脉冲）** 浅色设计系统，组件结构已为深色主题预留。
+基于 React、Radix UI 与 CSS Variables 构建的通用组件库。首期采用 **Cobalt Pulse（钴蓝脉冲）** 浅色设计系统，组件结构已为深色主题预留。
 
-> 首个公开版本计划为 `v0.1.0`。发布前组件 API 仍可能调整；发布后可从 npm 安装 `@chenyibo111/ui`、`@chenyibo111/icons` 与 `@chenyibo111/tokens`。
+可从 npm 安装 `@chenyibo111/ui`、`@chenyibo111/icons` 与 `@chenyibo111/tokens`；组件 API 的兼容性变更会通过版本与变更日志说明。
 
 ## 包结构
 
@@ -56,17 +56,19 @@ pnpm build-docs
 
 两者服务于不同场景：
 
-- **Docs**：面向组件使用者，提供中文使用说明、可运行示例、源码与 API，入口为 `pnpm docs`。
-- **Storybook**：面向组件开发与验收，提供状态组合、Controls 和 a11y 检查，入口为 `pnpm storybook`。
+- **Docs**：面向组件使用者，提供中文使用说明、可运行示例、源码、API、组件总览、Token Reference 与业务 Recipes；入口为 `pnpm docs`。
+- **Storybook**：面向组件开发与验收，提供单组件状态组合、Controls 和 a11y 检查；入口为 `pnpm storybook`。
 
-文档站使用 Vercel 从 GitHub 自动部署；本地仍可通过 `pnpm docs` 开发与预览。
+文档站使用 Vercel 从 GitHub 的 `main` 自动部署；本地仍可通过 `pnpm docs` 开发与预览。Docs 解决“如何使用与组合”，Storybook 解决“组件当前有哪些可调状态”。
 
 ## 在 React 项目中使用
 
-安装发布后的包后，引入 UI 样式并在应用根部挂载 Provider：
+安装发布后的包后，按 Token、UI、应用样式的顺序导入，并在应用根部挂载 Provider：
 
 ```tsx
+import "@chenyibo111/tokens/styles.css"
 import "@chenyibo111/ui/styles.css"
+import "./app.css"
 import { Button, YBProvider } from "@chenyibo111/ui"
 
 export function App() {
@@ -90,14 +92,15 @@ export function App() {
 
 ## 质量门槛
 
-每批组件变更应至少通过：
+每批组件或文档变更应至少通过：
 
 ```bash
-pnpm test
-pnpm typecheck
-pnpm build
+pnpm verify
+pnpm build-docs
 pnpm build-storybook
 ```
+
+其中 `pnpm verify` 会运行 lint、构建、类型检查与全部测试；CI 会额外执行文档站静态构建与 Storybook 构建。
 
 ## 后续 npm 发布
 
@@ -112,4 +115,4 @@ pnpm build-storybook
 
 ## 路线图
 
-下一阶段将完成首次 npm 发布与消费者安装验证，并持续扩展组件与文档。
+后续将基于真实项目持续补充业务 Recipes、完善组件 API，并在 Token 就绪后交付深色主题。

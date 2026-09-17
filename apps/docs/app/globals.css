@@ -79,6 +79,37 @@ body {
   line-height: 1.65;
 }
 
+.yb-docs-home-section-heading {
+  display: grid;
+  gap: var(--yb-space-2);
+  margin-bottom: var(--yb-space-5);
+}
+
+.yb-docs-home-section-heading h2,
+.yb-docs-home-section-heading p {
+  margin: 0;
+}
+
+.yb-docs-home-route-content {
+  display: grid;
+  gap: var(--yb-space-4);
+}
+
+.yb-docs-home-route-link {
+  align-items: center;
+  color: var(--yb-primary);
+  display: inline-flex;
+  font-weight: 700;
+  gap: var(--yb-space-1);
+  text-decoration: none;
+  width: fit-content;
+}
+
+.yb-docs-home-route-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .yb-docs-component-preview {
   border: 1px solid var(--yb-border);
   border-radius: var(--yb-radius-lg);

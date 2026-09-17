@@ -7,6 +7,7 @@ on:
 
 jobs:
   verify:
+    name: Verify packages, documentation, and Storybook
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +20,9 @@ jobs:
       - run: node scripts/publish-workflow-smoke.mjs
       - run: pnpm verify
       - run: pnpm --filter @chenyibo111/playground test
-      - run: pnpm --filter @chenyibo111/docs test
-      - run: pnpm build-docs
-      - run: pnpm build-storybook
+      - name: Verify documentation pages and interactive examples
+        run: pnpm --filter @chenyibo111/docs test
+      - name: Build documentation site
+        run: pnpm build-docs
+      - name: Build Storybook
+        run: pnpm build-storybook

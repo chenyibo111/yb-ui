@@ -21,6 +21,27 @@ const capabilities = [
   },
 ]
 
+const documentationRoutes = [
+  {
+    description: "按能力分类浏览全部 33 个公开组件，并从单个页面查看示例、API 与注意事项。",
+    href: "/docs/components",
+    index: "01",
+    title: "组件总览",
+  },
+  {
+    description: "查看当前主题的真实颜色、字体、间距、圆角、阴影与层级 Token。",
+    href: "/docs/foundations/token-reference",
+    index: "02",
+    title: "Token Reference",
+  },
+  {
+    description: "从异步提交到消费者 CSS 边界，复制经过验证的组合模式。",
+    href: "/docs/recipes/async-submit",
+    index: "03",
+    title: "业务 Recipes",
+  },
+]
+
 export function HomePage() {
   return (
     <main className="yb-docs-home">
@@ -55,6 +76,32 @@ export function HomePage() {
               </CardHeader>
               <CardContent>
                 <Text className="yb-docs-home-card-description">{capability.description}</Text>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      <section aria-labelledby="yb-docs-home-routes-title">
+        <div className="yb-docs-home-section-heading">
+          <Heading id="yb-docs-home-routes-title" level={2}>
+            从任务开始探索
+          </Heading>
+          <Text tone="muted">选择一个入口，快速找到适合当前工作的说明与示例。</Text>
+        </div>
+        <div className="yb-docs-home-grid">
+          {documentationRoutes.map((route) => (
+            <Card className="yb-docs-home-card" key={route.href}>
+              <CardHeader>
+                <span className="yb-docs-home-card-index">{route.index}</span>
+                <CardTitle>{route.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="yb-docs-home-route-content">
+                <Text className="yb-docs-home-card-description">{route.description}</Text>
+                <a className="yb-docs-home-route-link" href={route.href}>
+                  {route.title}
+                  <ChevronRightIcon aria-hidden="true" size={16} />
+                </a>
               </CardContent>
             </Card>
           ))}
